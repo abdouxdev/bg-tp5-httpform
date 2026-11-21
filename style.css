@@ -1,0 +1,270 @@
+/* ---------- Base ---------- */
+:root {
+  --red: #ff0000;
+  --accent: #d6244a;
+  --accent-dark: #b81d3e;
+  --navy: #0f1b3d;
+  --bg: #f1f2f6;
+  --border: #e0e0e0;
+  --text: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 40px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ---------- Header & info ---------- */
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 24px;
+  color: #fff;
+  background-color: var(--red);
+}
+
+.info {
+  margin: 16px 16px 0;
+  padding: 10px 14px;
+  font-size: 12px;
+  text-align: left;
+  background-color: #fff8e1;
+  border: 1px solid #f2d27a;
+  border-radius: 6px;
+}
+
+/* ---------- Form & cards ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 16px 20px 0;
+  padding: 24px;
+  font-size: 16px;
+  background: linear-gradient(135deg, var(--bg), #fff);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  color: var(--navy);
+}
+
+.row {
+  display: flex;
+  gap: 14px;
+}
+
+.row .field {
+  flex: 1;
+  min-width: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+legend {
+  padding: 0 6px;
+  font-weight: 600;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.option label {
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* ---------- Champs ---------- */
+/* Largeur 100 % uniquement pour les champs "pleine largeur" */
+input:not([type="radio"]):not([type="checkbox"]):not([type="color"]):not([type="range"]):not([type="file"]),
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: #222;
+  background: #fff;
+  border: 1px solid #d0d3dc;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(214, 36, 74, 0.15);
+}
+
+textarea {
+  resize: vertical;
+}
+
+::placeholder {
+  color: #8a8fa0;
+}
+
+/* Range + output */
+.range-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+output {
+  min-width: 2ch;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Couleur */
+input[type="color"] {
+  width: 40px;
+  height: 25px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Zone de dépôt des fichiers */
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #fff;
+  border: 2px dashed #c9ccd6;
+  border-radius: 8px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+input[type="file"]:hover,
+input[type="file"]:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  background: #fff5f7;
+}
+
+input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 6px 14px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: var(--accent-dark);
+}
+
+.hint {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ---------- Bouton ---------- */
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.btn {
+  padding: 14px 36px;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #e8405e, var(--accent-dark));
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(214, 36, 74, 0.35);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(214, 36, 74, 0.45);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .card {
+    margin: 16px 12px 0;
+    padding: 18px;
+  }
+}
